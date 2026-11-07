@@ -1,0 +1,34 @@
+/* ==========================================================
+   Tema Informática (70%) + Matemática (30%) para todas las páginas
+   Fondo de puntos/cuadrícula y marcas de agua: </> (código) y π ∑ (matemática)
+   ========================================================== */
+main.bg-background {
+  background-image:
+    radial-gradient(rgba(37, 99, 235, .13) 1.2px, transparent 1.5px),
+    linear-gradient(rgba(124, 58, 237, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, .045) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
+}
+/* Marca de agua principal: código (70%) */
+main.bg-background::before {
+  content: "</>";
+  position: fixed;
+  right: 28px;
+  bottom: 14px;
+  z-index: 0;
+  pointer-events: none;
+  font: 800 130px ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  letter-spacing: -.06em;
+  color: rgba(30, 58, 138, .06);
+}
+/* Marca de agua secundaria: matemática (30%) */
+main.bg-background::after {
+  content: "π ∑";
+  position: fixed;
+  left: 330px;
+  bottom: 4px;
+  z-index: 0;
+  pointer-events: none;
+  font: italic 700 84px "Source Serif 4", Georgia, serif;
+  color: rgba(234, 88, 12, .06);
+}

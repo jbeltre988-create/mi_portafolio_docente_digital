@@ -145,3 +145,78 @@ section.bienvenida > .relative.z-10 { position: relative; z-index: 2; }
 @media (prefers-reduced-motion: reduce) {
   section.bienvenida, section.bienvenida .bv-deco, section.bienvenida h1 .bv-mano { animation: none !important; }
 }
+
+/* ==========================================================
+   Tema Informática (70%) + Matemática (30%) en la bienvenida
+   ========================================================== */
+
+/* Cuadrícula tipo circuito / papel milimetrado */
+section.bienvenida::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .09) 1px, transparent 1px);
+  background-size: 30px 30px;
+  -webkit-mask-image: linear-gradient(100deg, rgba(0,0,0,.95), rgba(0,0,0,.3));
+  mask-image: linear-gradient(100deg, rgba(0,0,0,.95), rgba(0,0,0,.3));
+}
+
+/* Más decoraciones: matemática (π, ∑) y código (</>, { }) */
+section.bienvenida .bv-d6 { top: 52%; right: 22%; animation-delay: -.6s; }
+section.bienvenida .bv-d7 { bottom: 12%; right: 4%; animation-delay: -1.8s; }
+section.bienvenida .bv-code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-weight: 800;
+  color: #bff7d4;
+  text-shadow: 0 0 14px rgba(52, 211, 153, .75), 0 3px 0 rgba(0, 0, 0, .25);
+}
+section.bienvenida .bv-mate {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  color: #ffe27a;
+  text-shadow: 0 0 14px rgba(255, 212, 71, .6), 0 3px 0 rgba(0, 0, 0, .25);
+}
+
+/* Mini terminal con cursor parpadeante */
+section.bienvenida .bv-terminal {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 4px;
+  margin-top: 10px;
+  padding: 9px 16px 9px 16px;
+  border-radius: 12px;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: .95rem;
+  font-weight: 700;
+  color: #7cffb2;
+  background: linear-gradient(180deg, #111a2e, #0b1220);
+  border: 1px solid rgba(255, 255, 255, .25);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, .45), 0 12px 18px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .15);
+  text-shadow: 0 0 8px rgba(124, 255, 178, .55);
+}
+section.bienvenida .bv-terminal::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  margin-right: 42px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 15px 0 #ffbd2e, 30px 0 #27c93f;
+}
+section.bienvenida .bv-prompt { color: #ffd447; }
+section.bienvenida .bv-cursor {
+  display: inline-block;
+  width: 9px;
+  height: 1.1em;
+  margin-left: 3px;
+  background: #7cffb2;
+  animation: bv-parpadeo 1s steps(2, start) infinite;
+}
+@keyframes bv-parpadeo { to { visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) { section.bienvenida .bv-cursor { animation: none; } }

@@ -77,7 +77,7 @@ header span[data-perfil="area"] {
   background: linear-gradient(180deg, #d9f7e3, #b6efc8);
   box-shadow: 0 2px 0 #7fcf9a;
 }
-header span[data-perfil="area"]::before { content: "🎓 "; }
+header span[data-perfil="area"]::before { content: "💻 "; }
 
 
 /* ---------- 2) "MI PORTAFOLIO DOCENTE" con animación coqueta ---------- */
