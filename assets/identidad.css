@@ -1,0 +1,186 @@
+/* ==========================================================
+   Identidad: nombre del docente con presencia (cabecera)
+   y título "Mi Portafolio Docente" con animación coqueta (menú)
+   Se usa en: index, evidencias, planificaciones, reflexiones, perfil
+   ========================================================== */
+
+/* ---------- 1) NOMBRE DEL DOCENTE (arriba a la derecha) ---------- */
+header div:has(> img[data-perfil="foto"]) {
+  position: relative;
+  flex-shrink: 0;
+  white-space: nowrap;
+  max-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px !important;
+  padding: 3px 18px 3px 4px !important;
+  border: 3px solid transparent !important;
+  border-radius: 999px !important;
+  /* borde de colores animado alrededor de una tarjeta blanca */
+  background:
+    linear-gradient(#ffffff, #fffaf0) padding-box,
+    linear-gradient(90deg, #2563eb, #16a34a, #f5b400, #f97316, #dc2626, #7c3aed, #2563eb) border-box !important;
+  background-size: 100% 100%, 300% 100% !important;
+  animation: id-borde 6s linear infinite;
+  box-shadow:
+    0 4px 0 rgba(30, 58, 138, .35),
+    0 10px 18px rgba(30, 58, 138, .22) !important;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+header div:has(> img[data-perfil="foto"]):hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 rgba(30, 58, 138, .35),
+    0 14px 22px rgba(30, 58, 138, .28) !important;
+}
+@keyframes id-borde {
+  from { background-position: 0 0, 0% 50%; }
+  to   { background-position: 0 0, 300% 50%; }
+}
+
+/* Foto con aro dorado */
+header img[data-perfil="foto"] {
+  flex: none;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 50% !important;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 3px #f5b400, 0 4px 8px rgba(0, 0, 0, .25);
+}
+
+/* Nombre grande, con degradado */
+header span[data-perfil="nombre"] {
+  font-family: "Source Serif 4", Georgia, serif !important;
+  font-size: 1.2rem !important;
+  line-height: 1.1 !important;
+  font-weight: 800 !important;
+  letter-spacing: -.005em;
+  background: linear-gradient(90deg, #1e3a8a 0%, #6d28d9 55%, #ea580c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #1e3a8a !important;
+}
+
+/* Área como insignia verde */
+header span[data-perfil="area"] {
+  align-self: flex-start;
+  margin-top: 2px;
+  padding: 1px 9px;
+  border-radius: 999px;
+  font-size: .68rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: #0f5c2b !important;
+  background: linear-gradient(180deg, #d9f7e3, #b6efc8);
+  box-shadow: 0 2px 0 #7fcf9a;
+}
+header span[data-perfil="area"]::before { content: "🎓 "; }
+
+
+/* ---------- 2) "MI PORTAFOLIO DOCENTE" con animación coqueta ---------- */
+aside.fixed.left-0 > div:first-child > div:first-child {
+  position: relative;
+  height: 72px !important;
+  overflow: visible;
+  animation: id-bailecito 5s ease-in-out infinite;
+  transform-origin: 30% 60%;
+}
+
+/* Logo: late como corazón y de vez en cuando guiña */
+aside.fixed.left-0 > div:first-child > div:first-child img {
+  height: 44px !important;
+  filter: drop-shadow(0 0 8px rgba(236, 72, 153, .55));
+  animation: id-guino 4.5s ease-in-out infinite;
+  transform-origin: 50% 70%;
+}
+@keyframes id-guino {
+  0%, 78%, 100% { transform: rotate(0) scale(1); }
+  82%           { transform: rotate(-12deg) scale(1.16); }
+  86%           { transform: rotate(10deg) scale(1.16); }
+  90%           { transform: rotate(-6deg) scale(1.1); }
+  94%           { transform: rotate(0) scale(1.06); }
+}
+
+/* Balanceo suave de todo el bloque */
+@keyframes id-bailecito {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  25%      { transform: rotate(-1.2deg) translateY(-1px); }
+  75%      { transform: rotate(1.2deg) translateY(1px); }
+}
+
+/* "Mi Portafolio": brillo de colores que recorre las letras */
+aside.fixed.left-0 > div:first-child > div:first-child .font-headline-sm {
+  font-family: "Source Serif 4", Georgia, serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 800 !important;
+  line-height: 1.05 !important;
+  background: linear-gradient(100deg,
+    #1d4ed8 0%, #7c3aed 22%, #ec4899 40%, #f97316 58%, #f5b400 72%, #1d4ed8 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #1d4ed8 !important;
+  animation: id-brillo 4s linear infinite;
+}
+@keyframes id-brillo {
+  from { background-position: 0% 50%; }
+  to   { background-position: 250% 50%; }
+}
+
+/* "Docente": letras espaciadas, rosadas, que respiran */
+aside.fixed.left-0 > div:first-child > div:first-child .font-label-sm {
+  font-weight: 800 !important;
+  letter-spacing: .38em !important;
+  color: #ec4899 !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .9);
+  animation: id-respira 3s ease-in-out infinite;
+}
+@keyframes id-respira {
+  0%, 100% { letter-spacing: .34em; opacity: .85; }
+  50%      { letter-spacing: .44em; opacity: 1; }
+}
+
+/* Destellos ✨ que titilan */
+aside.fixed.left-0 > div:first-child > div:first-child::before {
+  content: "✨";
+  position: absolute;
+  right: 20px;
+  top: 8px;
+  font-size: 18px;
+  pointer-events: none;
+  animation: id-destello 2.4s ease-in-out infinite;
+}
+@keyframes id-destello {
+  0%, 100% { transform: scale(.4) rotate(0deg); opacity: 0; }
+  40%      { transform: scale(1.15) rotate(20deg); opacity: 1; }
+  70%      { transform: scale(.8) rotate(-10deg); opacity: .8; }
+}
+
+/* Corazoncito que sube desde el logo */
+aside.fixed.left-0 > div:first-child > div:first-child::after {
+  content: "💖";
+  position: absolute;
+  left: 34px;
+  top: 8px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0;
+  animation: id-corazon 3.6s ease-in infinite;
+}
+@keyframes id-corazon {
+  0%   { transform: translate(0, 14px) scale(.4); opacity: 0; }
+  30%  { transform: translate(6px, 0) scale(1); opacity: 1; }
+  100% { transform: translate(-6px, -22px) scale(.7); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header div:has(> img[data-perfil="foto"]),
+  aside.fixed.left-0 > div:first-child > div:first-child,
+  aside.fixed.left-0 > div:first-child > div:first-child *,
+  aside.fixed.left-0 > div:first-child > div:first-child::before,
+  aside.fixed.left-0 > div:first-child > div:first-child::after { animation: none !important; }
+}
