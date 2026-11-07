@@ -31,7 +31,7 @@
   }
   function imgEls(root) {
     return Array.prototype.filter.call(root.querySelectorAll('img'), function (el) {
-      return !el.hasAttribute('data-perfil');
+      return !el.hasAttribute('data-perfil') && !el.closest('.ed-ui');
     });
   }
   function cleanHTML(el) {
@@ -154,7 +154,7 @@
     var a = e.target.closest && e.target.closest('a');
     if (a && !a.closest('.ed-ui')) e.preventDefault();          // evita salir de la página mientras editas
     var img = e.target.closest && e.target.closest('img');
-    if (img) { pending = img; fileInput.value = ''; fileInput.click(); }
+    if (img && !img.closest('.ed-ui')) { pending = img; fileInput.value = ''; fileInput.click(); }
   }, true);
   fileInput.addEventListener('change', function () {
     var f = fileInput.files[0]; if (!f || !pending) return;
@@ -208,6 +208,8 @@
     } catch (e) {}
     location.reload();
   }
+
+  window.PortafolioEditor = { setEdit: function (on) { if (ctx) setEdit(on); } };
 
   /* ---------- Inicio ---------- */
   function init() {
