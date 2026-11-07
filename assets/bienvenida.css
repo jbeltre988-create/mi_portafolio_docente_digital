@@ -1,0 +1,147 @@
+/* ==========================================================
+   Bienvenida llamativa del Panel Principal (index.html)
+   Colores de la educación, decoraciones flotantes y relieve 3D
+   ========================================================== */
+
+section.bienvenida {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px !important;
+  padding: clamp(24px, 4vw, 44px) !important;
+  color: #fff;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 212, 71, .55) 0, rgba(255, 212, 71, 0) 38%),
+    radial-gradient(circle at 88% 85%, rgba(52, 196, 107, .55) 0, rgba(52, 196, 107, 0) 40%),
+    linear-gradient(120deg, #1d4ed8 0%, #6d28d9 48%, #ea580c 100%) !important;
+  background-size: 140% 140%, 140% 140%, 220% 220% !important;
+  animation: bv-fondo 14s ease-in-out infinite alternate;
+  border: 3px solid rgba(255, 255, 255, .55);
+  box-shadow:
+    0 8px 0 #1e3a8a,
+    0 22px 34px rgba(30, 58, 138, .35),
+    inset 0 2px 0 rgba(255, 255, 255, .45) !important;
+}
+@keyframes bv-fondo {
+  0%   { background-position: 0% 0%, 100% 100%, 0% 50%; }
+  100% { background-position: 100% 30%, 0% 70%, 100% 50%; }
+}
+
+/* Franja de lápices de colores en la base */
+section.bienvenida::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 10px;
+  background: linear-gradient(90deg,
+    #2563eb 0 20%, #16a34a 20% 40%, #f5b400 40% 60%,
+    #f97316 60% 80%, #dc2626 80% 100%);
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, .18);
+}
+
+/* Decoraciones flotantes (emojis escolares) */
+section.bienvenida .bv-deco {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  font-size: clamp(30px, 4.2vw, 56px);
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .3));
+  animation: bv-flota 5s ease-in-out infinite;
+}
+section.bienvenida .bv-d1 { top: 14%;  right: 38%; animation-delay: 0s; }
+section.bienvenida .bv-d2 { top: 10%;  right: 6%;  animation-delay: -1.2s; }
+section.bienvenida .bv-d3 { bottom: 20%; right: 30%; animation-delay: -2.4s; }
+section.bienvenida .bv-d4 { bottom: 14%; left: 46%; animation-delay: -3.3s; }
+section.bienvenida .bv-d5 { top: 8%; left: 52%; animation-delay: -4s; font-size: clamp(22px, 3vw, 38px); }
+@keyframes bv-flota {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50%      { transform: translateY(-14px) rotate(7deg); }
+}
+
+/* Cinta superior: "Bienvenido a tu portafolio" */
+section.bienvenida .bv-cinta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: .9rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #3b2a00;
+  background: linear-gradient(180deg, #ffe27a, #f5b400);
+  box-shadow: 0 4px 0 #b67800, 0 8px 12px rgba(0, 0, 0, .25), inset 0 2px 0 rgba(255, 255, 255, .6);
+  margin-bottom: 6px;
+}
+
+/* Pastilla de periodo activo */
+section.bienvenida .bg-secondary-container.animate-pulse {
+  background: #34d399 !important;
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, .35);
+}
+section.bienvenida .uppercase.tracking-wider {
+  color: #fff7d6 !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+}
+
+/* Título grande */
+section.bienvenida h1 {
+  font-size: clamp(2rem, 4.6vw, 3.4rem) !important;
+  line-height: 1.1 !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, .22), 0 8px 18px rgba(0, 0, 0, .28);
+  margin: 4px 0 2px;
+}
+section.bienvenida h1 .bv-saludo { display: block; font-size: .55em; font-weight: 700; color: #ffe27a; letter-spacing: .01em; }
+section.bienvenida h1 .bv-nombre {
+  background: linear-gradient(90deg, #fff 0%, #ffe27a 60%, #fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 3px 0 rgba(0, 0, 0, .25));
+}
+section.bienvenida h1 .bv-mano {
+  display: inline-block;
+  transform-origin: 70% 80%;
+  animation: bv-saluda 2.2s ease-in-out infinite;
+  -webkit-text-fill-color: initial;
+}
+@keyframes bv-saluda {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10%, 30%, 50% { transform: rotate(16deg); }
+  20%, 40%       { transform: rotate(-8deg); }
+}
+
+section.bienvenida p { color: #f1f5ff !important; text-shadow: 0 1px 2px rgba(0, 0, 0, .25); }
+section.bienvenida p span.underline { color: #ffe27a !important; font-weight: 800; }
+
+/* Tarjeta del medidor de avance con relieve */
+section.bienvenida > div:last-of-type > div:last-child,
+section.bienvenida .bv-medidor {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(160deg, rgba(255, 255, 255, .96), rgba(255, 244, 214, .96)) !important;
+  border-radius: 20px !important;
+  padding: 14px 20px !important;
+  border: 2px solid #fff;
+  box-shadow: 0 6px 0 #d9b24c, 0 14px 22px rgba(0, 0, 0, .28), inset 0 2px 0 #fff !important;
+}
+section.bienvenida .bv-medidor span { color: #1e293b !important; text-shadow: none !important; }
+section.bienvenida .bv-medidor .text-secondary-container { color: #16a34a !important; }
+section.bienvenida .bv-medidor .text-white\/20 { color: #e5e7eb !important; }
+section.bienvenida .bv-medidor svg { filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .2)); }
+
+/* Contenido por encima de las decoraciones */
+section.bienvenida > .relative.z-10 { position: relative; z-index: 2; }
+
+@media (max-width: 640px) {
+  section.bienvenida .bv-d1, section.bienvenida .bv-d4, section.bienvenida .bv-d5 { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  section.bienvenida, section.bienvenida .bv-deco, section.bienvenida h1 .bv-mano { animation: none !important; }
+}

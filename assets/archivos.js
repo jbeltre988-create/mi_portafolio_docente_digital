@@ -193,7 +193,7 @@
     var m = document.createElement('div'); m.id = 'arch-modal'; m.className = 'ed-ui';
     m.innerHTML = '<form class="arch-box" autocomplete="off"><h3 style="margin:0 0 4px;font-size:20px;font-weight:700;color:#00236f" id="arch-h"></h3>' +
       '<label>Título *</label><input type="text" id="f-titulo" required placeholder="Ej: Planificación Unidad 1 - Matemáticas">' +
-      '<label>Categoría (opcional)</label><input type="text" id="f-cat" placeholder="Ej: Unidad 1, Rúbricas, 2024-2025">' +
+      '<label>Categoría (opcional)</label><input type="text" id="f-cat" placeholder="Ej: Unidad 1, Rúbricas, 2026-2027">' +
       '<label>Descripción (opcional)</label><textarea id="f-desc" rows="3"></textarea>' +
       '<label>Enlace (Google Drive, Docs, YouTube, PDF…)</label><input type="text" id="f-url" placeholder="https://drive.google.com/…">' +
       '<small>En Google Drive: clic derecho en el archivo → Compartir → “Cualquier persona con el enlace” → Copiar enlace. También sirve una carpeta completa.</small>' +
